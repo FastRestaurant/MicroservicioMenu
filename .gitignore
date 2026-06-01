@@ -1,0 +1,49 @@
+# Visual Studio
+.vs/
+.vscode/
+
+# Build
+bin/
+obj/
+
+# User files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# NuGet
+packages/
+
+# SQL Server LocalDB
+*.mdf
+*.ldf
+
+# EF Core generated files
+*.dbmdl
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Publish
+publish/
+
+# Test Results
+TestResults/
+
+# Temporary files
+*.tmp
+*.temp
+
+# ASP.NET Core
+appsettings.Development.json
+
+# JetBrains ReSharper
+_ReSharper*/
