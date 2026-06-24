@@ -52,10 +52,7 @@ public class DrinksController : ControllerBase
     public async Task<IActionResult> GetById(Guid id)
     {
         var result = await _getDrinkByIdHandler.HandleAsync(new GetDrinkByIdQuery { Id = id });
-<<<<<<< HEAD
-=======
 
->>>>>>> 34cbd93e06be99c72ca561340d10f29cf75cc0d3
         return Ok(result);
     }
 
