@@ -109,40 +109,43 @@ public static class MenuDbSeeder
 
     private static List<Dish> BuildDishes(IReadOnlyDictionary<string, Guid> categories, DateTime now) => new()
     {
-        Dish(categories, now, "Entradas", "Empanadas de carne", "Empanadas tradicionales de carne cortada a cuchillo", 1800, 10, "/images/dishes/empanadas-carne.jpg"),
-        Dish(categories, now, "Entradas", "Empanadas de jamón y queso", "Empanadas rellenas de jamón y queso", 1700, 10, "/images/dishes/empanadas-jamon-queso.jpg"),
-        Dish(categories, now, "Entradas", "Provoleta", "Queso provolone grillado con orégano", 4200, 12, "/images/dishes/provoleta.jpg"),
-        Dish(categories, now, "Entradas", "Papas fritas", "Porción de papas fritas crocantes", 3500, 12, "/images/dishes/papas-fritas.jpg"),
-        Dish(categories, now, "Entradas", "Rabas", "Rabas fritas con limón", 6500, 15, "/images/dishes/rabas.jpg"),
-        Dish(categories, now, "Platos principales", "Milanesa napolitana", "Milanesa con salsa de tomate, jamón y queso", 7500, 20, "/images/dishes/milanesa-napolitana.jpg"),
-        Dish(categories, now, "Platos principales", "Milanesa con papas", "Milanesa clásica acompañada con papas fritas", 6900, 18, "/images/dishes/milanesa-con-papas.jpg"),
-        Dish(categories, now, "Platos principales", "Bife de chorizo", "Bife de chorizo grillado con guarnición", 10500, 25, "/images/dishes/bife-de-chorizo.jpg"),
-        Dish(categories, now, "Platos principales", "Pollo grillado", "Pechuga de pollo grillada con ensalada", 6800, 20, "/images/dishes/pollo-grillado.jpg"),
-        Dish(categories, now, "Platos principales", "Suprema a la suiza", "Suprema de pollo con salsa blanca y queso gratinado", 7900, 22, "/images/dishes/suprema-a-la-suiza.jpg"),
-        Dish(categories, now, "Platos principales", "Hamburguesa completa", "Hamburguesa con lechuga, tomate, queso, jamón y huevo", 6200, 15, "/images/dishes/hamburguesa-completa.jpg"),
-        Dish(categories, now, "Pastas", "Ravioles de ricota", "Ravioles caseros de ricota con salsa a elección", 6200, 18, "/images/dishes/ravioles-de-ricota.jpg"),
-        Dish(categories, now, "Pastas", "Sorrentinos de jamón y queso", "Sorrentinos rellenos con jamón y queso", 6900, 20, "/images/dishes/sorrentinos-jamon-queso.jpg"),
-        Dish(categories, now, "Pastas", "Tallarines caseros", "Tallarines caseros con salsa fileto", 5800, 16, "/images/dishes/tallarines-caseros.jpg"),
-        Dish(categories, now, "Pastas", "Ñoquis de papa", "Ñoquis de papa con salsa mixta", 5600, 16, "/images/dishes/noquis-de-papa.jpg"),
-        Dish(categories, now, "Postres", "Flan casero", "Flan tradicional con dulce de leche", 2800, 5, "/images/dishes/flan-casero.jpg"),
-        Dish(categories, now, "Postres", "Budín de pan", "Budín de pan casero con caramelo", 2700, 5, "/images/dishes/budin-de-pan.jpg"),
-        Dish(categories, now, "Postres", "Helado artesanal", "Dos bochas de helado artesanal", 3200, 3, "/images/dishes/helado-artesanal.jpg"),
-        Dish(categories, now, "Postres", "Cheesecake", "Cheesecake con frutos rojos", 3900, 5, "/images/dishes/cheesecake.jpg"),
-        Dish(categories, now, "Postres", "Tiramisú", "Postre italiano con café y cacao", 4100, 5, "/images/dishes/tiramisu.jpg")
+        Dish(categories, now, "Entradas", "Empanadas de carne", "Empanadas tradicionales de carne cortada a cuchillo", 1800, 10, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358025/empanadas-carne_lcy2co.webp"),
+        Dish(categories, now, "Entradas", "Empanadas de jamón y queso", "Empanadas rellenas de jamón y queso", 1700, 10, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358032/empanadas-jamon-queso_ldihju.webp"),
+        Dish(categories, now, "Entradas", "Provoleta", "Queso provolone grillado con orégano", 4200, 12, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358103/provoleta_uayojx.jpg"),
+        Dish(categories, now, "Entradas", "Papas fritas", "Porción de papas fritas crocantes", 3500, 12, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358089/papas-fritas_oqkwq2.jpg"),
+        Dish(categories, now, "Entradas", "Rabas", "Rabas fritas con limón", 6500, 15, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358110/rabas_orochy.jpg"),
+
+        Dish(categories, now, "Platos principales", "Milanesa napolitana", "Milanesa con salsa de tomate, jamón y queso", 7500, 20, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358076/milanesa-napolitana_lh5tei.webp"),
+        Dish(categories, now, "Platos principales", "Milanesa con papas", "Milanesa clásica acompañada con papas fritas", 6900, 18, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358069/milanesa-con-papas_val9kl.jpg"),
+        Dish(categories, now, "Platos principales", "Bife de chorizo", "Bife de chorizo grillado con guarnición", 10500, 25, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782357817/bife-de-chorizo_jizn3p.jpg"),
+        Dish(categories, now, "Platos principales", "Pollo grillado", "Pechuga de pollo grillada con ensalada", 6800, 20, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358097/pollo-grillado_prfn4d.jpg"),
+        Dish(categories, now, "Platos principales", "Suprema a la suiza", "Suprema de pollo con salsa blanca y queso gratinado", 7900, 22, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358136/suprema-a-la-suiza_mm9n3p.jpg"),
+        Dish(categories, now, "Platos principales", "Hamburguesa completa", "Hamburguesa con lechuga, tomate, queso, jamón y huevo", 6200, 15, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358051/hamburguesa-completa_pwwylh.jpg"),
+
+        Dish(categories, now, "Pastas", "Ravioles de ricota", "Ravioles caseros de ricota con salsa a elección", 6200, 18, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358119/ravioles-de-ricota_ohce2t.jpg"),
+        Dish(categories, now, "Pastas", "Sorrentinos de jamón y queso", "Sorrentinos rellenos con jamón y queso", 6900, 20, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358126/sorrentinos-jamon-queso_h7zd5l.jpg"),
+        Dish(categories, now, "Pastas", "Tallarines caseros", "Tallarines caseros con salsa fileto", 5800, 16, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358139/tallarines-caseros_s9kthm.jpg"),
+        Dish(categories, now, "Pastas", "Ñoquis de papa", "Ñoquis de papa con salsa mixta", 5600, 16, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358083/noquis-de-papa_nktqv0.jpg"),
+
+        Dish(categories, now, "Postres", "Flan casero", "Flan tradicional con dulce de leche", 2800, 5, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358043/flan-casero_tyfe0j.jpg"),
+        Dish(categories, now, "Postres", "Budín de pan", "Budín de pan casero con caramelo", 2700, 5, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358005/budin-de-pan_wfawsg.jpg"),
+        Dish(categories, now, "Postres", "Helado artesanal", "Dos bochas de helado artesanal", 3200, 3, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358061/helado-artesanal_ram3zv.jpg"),
+        Dish(categories, now, "Postres", "Cheesecake", "Cheesecake con frutos rojos", 3900, 5, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358017/cheesecake_louraz.jpg"),
+        Dish(categories, now, "Postres", "Tiramisú", "Postre italiano con café y cacao", 4100, 5, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358146/tiramisu_oq4puw.jpg")
     };
 
     private static List<Drink> BuildDrinks(IReadOnlyDictionary<string, Guid> categories, DateTime now) => new()
     {
-        Drink(categories, now, "Coca-Cola 500ml", "Gaseosa cola individual", 1800, "/images/drinks/coca-cola-500ml.jpg"),
-        Drink(categories, now, "Agua mineral 500ml", "Agua mineral sin gas", 1200, "/images/drinks/agua-mineral-500ml.jpg"),
-        Drink(categories, now, "Sprite 500ml", "Gaseosa lima limón individual", 1800, "/images/drinks/sprite-500ml.jpg"),
-        Drink(categories, now, "Fanta 500ml", "Gaseosa sabor naranja individual", 1800, "/images/drinks/fanta-500ml.jpg"),
-        Drink(categories, now, "Agua con gas 500ml", "Agua mineral con gas", 1300, "/images/drinks/agua-con-gas-500ml.jpg"),
-        Drink(categories, now, "Jugo de naranja", "Jugo natural de naranja", 2200, "/images/drinks/jugo-de-naranja.jpg"),
-        Drink(categories, now, "Limonada", "Limonada casera con menta", 2400, "/images/drinks/limonada.jpg"),
-        Drink(categories, now, "Cerveza Quilmes", "Cerveza rubia 473ml", 2600, "/images/drinks/cerveza-quilmes.jpg"),
-        Drink(categories, now, "Cerveza Stella Artois", "Cerveza rubia 473ml", 3200, "/images/drinks/cerveza-stella-artois.jpg"),
-        Drink(categories, now, "Café", "Café caliente", 1500, "/images/drinks/cafe.jpg")
+        Drink(categories, now, "Coca-Cola 500ml", "Gaseosa cola individual", 1800, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358287/coca-cola-500ml_rn4bhr.jpg"),
+        Drink(categories, now, "Agua mineral 500ml", "Agua mineral sin gas", 1200, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358250/agua-mineral-500ml_vdkfzu.jpg"),
+        Drink(categories, now, "Sprite 500ml", "Gaseosa lima limón individual", 1800, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358323/sprite-500ml_przhre.jpg"),
+        Drink(categories, now, "Fanta 500ml", "Gaseosa sabor naranja individual", 1800, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358295/fanta-500ml_gp50z4.jpg"),
+        Drink(categories, now, "Agua con gas 500ml", "Agua mineral con gas", 1300, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358241/agua-con-gas-500ml_r0jnme.jpg"),
+        Drink(categories, now, "Jugo de naranja", "Jugo natural de naranja", 2200, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358307/jugo-de-naranja_otlza5.jpg"),
+        Drink(categories, now, "Limonada", "Limonada casera con menta", 2400, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358313/limonada_pv8tpi.jpg"),
+        Drink(categories, now, "Cerveza Quilmes", "Cerveza rubia 473ml", 2600, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358265/cerveza-quilmes_l4gk4g.jpg"),
+        Drink(categories, now, "Cerveza Stella Artois", "Cerveza rubia 473ml", 3200, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358274/cerveza-stella-artois_lpewpl.jpg"),
+        Drink(categories, now, "Café", "Café caliente", 1500, "https://res.cloudinary.com/dez2fwxfe/image/upload/v1782358258/cafe_yvrl2v.jpg")
     };
 
     private static Dish Dish(IReadOnlyDictionary<string, Guid> categories, DateTime now, string categoryName, string name, string description, decimal price, int minutes, string imageUrl)
