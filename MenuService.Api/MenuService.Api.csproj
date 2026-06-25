@@ -20,8 +20,4 @@
     <ProjectReference Include="..\MenuService.Infrastructure\MenuService.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-  </ItemGroup>
-
 </Project>

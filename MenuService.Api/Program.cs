@@ -10,7 +10,11 @@ using System.Security.Claims;
 using System.Text;
 
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
+{
+    Args = args,
+    WebRootPath = string.Empty
+});
 
 // Services
 
@@ -97,8 +101,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-app.UseStaticFiles(); // Todo lo que est� dentro de wwwroot puede ser servido p�blicamente.
 
 app.UseAuthentication();
 app.UseAuthorization();
