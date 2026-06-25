@@ -1,4 +1,5 @@
-﻿using MenuService.Application.DTOs.Dishes;
+﻿using MenuService.Application.DTOs.Common;
+using MenuService.Application.DTOs.Dishes;
 using MenuService.Application.UseCases.Dishes.Commands;
 using MenuService.Application.UseCases.Dishes.Handlers;
 using MenuService.Application.UseCases.Dishes.Queries;
@@ -36,7 +37,7 @@ public class DishesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll(
+    public async Task<ActionResult<PagedResultDto<DishDto>>> GetAll(
         [FromQuery] int pageNumber = 1,
         [FromQuery] int pageSize = 10)
     {
@@ -58,7 +59,7 @@ public class DishesController : ControllerBase
     }
 
     [HttpGet("category/{categoryId:guid}")]
-    public async Task<IActionResult> GetByCategory(
+    public async Task<ActionResult<PagedResultDto<DishDto>>> GetByCategory(
         Guid categoryId,
         [FromQuery] int pageNumber = 1,
         [FromQuery] int pageSize = 10)

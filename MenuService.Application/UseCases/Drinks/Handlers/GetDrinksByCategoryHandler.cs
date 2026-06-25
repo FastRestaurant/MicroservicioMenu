@@ -1,12 +1,14 @@
-﻿using MenuService.Application.DTOs.Drinks;
-using MenuService.Application.Interfaces;
-using MenuService.Application.UseCases.Drinks.Queries;
-using MenuService.Domain.Exceptions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using MenuService.Application.DTOs.Common;
+using MenuService.Application.DTOs.Drinks;
+using MenuService.Application.Interfaces;
+using MenuService.Application.UseCases.Drinks.Queries;
+using MenuService.Domain.Exceptions;
 
 namespace MenuService.Application.UseCases.Drinks.Handlers;
 
@@ -23,19 +25,21 @@ public class GetDrinksByCategoryHandler
         _categoryRepository = categoryRepository;
     }
 
-    public async Task<IEnumerable<DrinkDto>> HandleAsync(GetDrinksByCategoryQuery query)
+    public async Task<PagedResultDto<DrinkDto>> HandleAsync(GetDrinksByCategoryQuery query)
     {
         var category = await _categoryRepository.GetByIdAsync(query.CategoryId);
 
         if (category is null)
             throw new NotFoundException("La categoría no fue encontrada.");
 
+        var totalItems = await _drinkRepository.CountByCategoryIdAsync(query.CategoryId);
+
         var drinks = await _drinkRepository.GetByCategoryIdAsync(
             query.CategoryId,
             query.PageNumber,
             query.PageSize);
 
-        return drinks.Select(drink => new DrinkDto
+        var items = drinks.Select(drink => new DrinkDto
         {
             Id = drink.Id,
             CategoryId = drink.CategoryId,
@@ -48,5 +52,14 @@ public class GetDrinksByCategoryHandler
             CreatedAt = drink.CreatedAt,
             UpdatedAt = drink.UpdatedAt
         });
+
+        return new PagedResultDto<DrinkDto>
+        {
+            Items = items,
+            PageNumber = query.PageNumber,
+            PageSize = query.PageSize,
+            TotalItems = totalItems,
+            TotalPages = (int)Math.Ceiling(totalItems / (double)query.PageSize)
+        };
     }
 }

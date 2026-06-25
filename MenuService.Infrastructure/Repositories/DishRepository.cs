@@ -67,4 +67,15 @@ public class DishRepository : IDishRepository
     {
         _context.Dishes.Remove(dish);
     }
+
+    public async Task<int> CountAsync()
+    {
+        return await _context.Dishes.CountAsync();
+    }
+
+    public async Task<int> CountByCategoryIdAsync(Guid categoryId)
+    {
+        return await _context.Dishes
+            .CountAsync(dish => dish.CategoryId == categoryId);
+    }
 }
