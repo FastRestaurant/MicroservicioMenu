@@ -1,13 +1,12 @@
-﻿using System;
+﻿using MenuService.Application.DTOs.Dishes;
+using MenuService.Application.Interfaces;
+using MenuService.Application.UseCases.Dishes.Queries;
+using MenuService.Domain.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-using MenuService.Application.DTOs.Dishes;
-using MenuService.Application.Interfaces;
-using MenuService.Application.UseCases.Dishes.Queries;
-using MenuService.Domain.Exceptions;
 
 namespace MenuService.Application.UseCases.Dishes.Handlers;
 

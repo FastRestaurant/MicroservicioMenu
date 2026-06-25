@@ -36,9 +36,16 @@ public class DishesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll(
+        [FromQuery] int pageNumber = 1,
+        [FromQuery] int pageSize = 10)
     {
-        var result = await _getAllDishesHandler.HandleAsync(new GetAllDishesQuery());
+        var result = await _getAllDishesHandler.HandleAsync(new GetAllDishesQuery
+        {
+            PageNumber = pageNumber,
+            PageSize = pageSize
+        });
+
         return Ok(result);
     }
 
@@ -51,11 +58,16 @@ public class DishesController : ControllerBase
     }
 
     [HttpGet("category/{categoryId:guid}")]
-    public async Task<IActionResult> GetByCategory(Guid categoryId)
+    public async Task<IActionResult> GetByCategory(
+        Guid categoryId,
+        [FromQuery] int pageNumber = 1,
+        [FromQuery] int pageSize = 10)
     {
         var result = await _getDishesByCategoryHandler.HandleAsync(new GetDishesByCategoryQuery
         {
-            CategoryId = categoryId
+            CategoryId = categoryId,
+            PageNumber = pageNumber,
+            PageSize = pageSize
         });
 
         return Ok(result);

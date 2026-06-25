@@ -36,9 +36,15 @@ public class DrinksController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll()
+    public async Task<IActionResult> GetAll(
+        [FromQuery] int pageNumber = 1,
+        [FromQuery] int pageSize = 10)
     {
-        var result = await _getAllDrinksHandler.HandleAsync(new GetAllDrinksQuery());
+        var result = await _getAllDrinksHandler.HandleAsync(new GetAllDrinksQuery
+        {
+            PageNumber = pageNumber,
+            PageSize = pageSize
+        });
         return Ok(result);
     }
 
@@ -51,11 +57,16 @@ public class DrinksController : ControllerBase
     }
 
     [HttpGet("category/{categoryId:guid}")]
-    public async Task<IActionResult> GetByCategory(Guid categoryId)
+    public async Task<IActionResult> GetByCategory(
+        Guid categoryId,
+        [FromQuery] int pageNumber = 1,
+        [FromQuery] int pageSize = 10)
     {
         var result = await _getDrinksByCategoryHandler.HandleAsync(new GetDrinksByCategoryQuery
         {
-            CategoryId = categoryId
+            CategoryId = categoryId,
+            PageNumber = pageNumber,
+            PageSize = pageSize
         });
 
         return Ok(result);
