@@ -67,4 +67,15 @@ public class DrinkRepository : IDrinkRepository
     {
         _context.Drinks.Remove(drink);
     }
+
+    public async Task<int> CountAsync()
+    {
+        return await _context.Drinks.CountAsync();
+    }
+
+    public async Task<int> CountByCategoryIdAsync(Guid categoryId)
+    {
+        return await _context.Drinks
+            .CountAsync(drink => drink.CategoryId == categoryId);
+    }
 }

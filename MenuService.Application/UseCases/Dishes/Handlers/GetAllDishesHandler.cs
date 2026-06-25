@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using MenuService.Application.DTOs.Common;
 using MenuService.Application.DTOs.Dishes;
 using MenuService.Application.Interfaces;
 using MenuService.Application.UseCases.Dishes.Queries;
@@ -19,13 +20,15 @@ public class GetAllDishesHandler
         _dishRepository = dishRepository;
     }
 
-    public async Task<IEnumerable<DishDto>> HandleAsync(GetAllDishesQuery query)
+    public async Task<PagedResultDto<DishDto>> HandleAsync(GetAllDishesQuery query)
     {
+        var totalItems = await _dishRepository.CountAsync();
+
         var dishes = await _dishRepository.GetAllAsync(
             query.PageNumber,
             query.PageSize);
 
-        return dishes.Select(dish => new DishDto
+        var items = dishes.Select(dish => new DishDto
         {
             Id = dish.Id,
             CategoryId = dish.CategoryId,
@@ -39,5 +42,14 @@ public class GetAllDishesHandler
             CreatedAt = dish.CreatedAt,
             UpdatedAt = dish.UpdatedAt
         });
+
+        return new PagedResultDto<DishDto>
+        {
+            Items = items,
+            PageNumber = query.PageNumber,
+            PageSize = query.PageSize,
+            TotalItems = totalItems,
+            TotalPages = (int)Math.Ceiling(totalItems / (double)query.PageSize)
+        };
     }
 }

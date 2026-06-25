@@ -16,4 +16,7 @@ public interface IDishRepository
     Task AddAsync(Dish dish);
     void Update(Dish dish);
     void Delete(Dish dish);
+
+    Task<int> CountAsync();
+    Task<int> CountByCategoryIdAsync(Guid categoryId);
 }

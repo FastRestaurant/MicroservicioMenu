@@ -1,4 +1,5 @@
-﻿using MenuService.Application.DTOs.Drinks;
+﻿using MenuService.Application.DTOs.Common;
+using MenuService.Application.DTOs.Drinks;
 using MenuService.Application.UseCases.Drinks.Commands;
 using MenuService.Application.UseCases.Drinks.Handlers;
 using MenuService.Application.UseCases.Drinks.Queries;
@@ -36,7 +37,7 @@ public class DrinksController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAll(
+    public async Task<ActionResult<PagedResultDto<DrinkDto>>> GetAll(
         [FromQuery] int pageNumber = 1,
         [FromQuery] int pageSize = 10)
     {
@@ -45,6 +46,7 @@ public class DrinksController : ControllerBase
             PageNumber = pageNumber,
             PageSize = pageSize
         });
+
         return Ok(result);
     }
 
@@ -57,7 +59,7 @@ public class DrinksController : ControllerBase
     }
 
     [HttpGet("category/{categoryId:guid}")]
-    public async Task<IActionResult> GetByCategory(
+    public async Task<ActionResult<PagedResultDto<DrinkDto>>> GetByCategory(
         Guid categoryId,
         [FromQuery] int pageNumber = 1,
         [FromQuery] int pageSize = 10)

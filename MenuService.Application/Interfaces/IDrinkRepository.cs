@@ -16,4 +16,7 @@ public interface IDrinkRepository
     Task AddAsync(Drink drink);
     void Update(Drink drink);
     void Delete(Drink drink);
+
+    Task<int> CountAsync();
+    Task<int> CountByCategoryIdAsync(Guid categoryId);
 }
