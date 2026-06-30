@@ -1,17 +1,19 @@
-# MenuService
+<div align="center">
+  <h1>📖 Microservicio de Menú</h1>
+  <h3> Administra todo el catálogo de productos que ofrece el restaurante a sus clientes. </h3>
+</div>
 
-Microservicio encargado de la gestión del catálogo de un sistema de gestión para restaurantes.
+* **Gestión de Categorías:** Agrupación de productos (ej. Entradas, Platos Principales, Postres).
+* **Gestión de Platos (Dishes):** Creación, lectura, actualización y eliminación (CRUD) de platos, incluyendo detalles como precio y tiempo estimado de preparación.
+* **Gestión de Bebidas (Drinks):** Administración del catálogo de bebidas.
 
 ## Responsabilidades
-
-MenuService administra la información relacionada con:
-
-* Categorías
-* Platos
-* Bebidas
+Administra la información relacionada con:
+* **Categorías**
+* **Platos**
+* **Bebidas**
 
 Además, expone endpoints de integración para permitir la comunicación con otros microservicios del sistema.
-
 ---
 
 ## Arquitectura
